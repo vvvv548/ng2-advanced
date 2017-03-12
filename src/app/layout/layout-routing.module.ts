@@ -20,8 +20,8 @@ const routes: Routes = [
         { path: 'page2',  component:Page2Component  },        
         { path: 'cards', component:CardsComponent},
         { path: 'cards/:num', component:CardsComponent},
-        // { path: 'charts/flot',component:FlotComponent},
-        // { path: 'charts/radial', component:RadialComponent}
+        { path: 'charts/flot',component:FlotComponent},
+        { path: 'charts/radial', component:RadialComponent}
     ]
   }];
 
