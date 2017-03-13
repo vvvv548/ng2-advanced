@@ -7,7 +7,6 @@ import { FlotComponent } from './flot/flot.component';
 const routes: Routes = [{
    path: 'charts',    
    children:[
-        { path:'',redirectTo:'flot',pathMatch:'full'},
         { path:'flot',component:FlotComponent},
         { path:'radial', component:RadialComponent}
     ]
