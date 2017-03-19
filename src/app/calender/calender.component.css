@@ -1,0 +1,9 @@
+.calender {
+    width: 400px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    box-shadow: 1px 1px 0 #eee;    
+}
+.middle{
+    text-align:center;
+}

@@ -1,5 +1,7 @@
-import { RadialComponent } from './charts/radial/radial.component';
-import { FlotComponent } from './charts/flot/flot.component';
+import { CalenderComponent } from './calender/calender.component';
+import { NeedLoginGuard } from './need-login.guard';
+import { Page2Component } from './page2/page2.component';
+import { Page1Component } from './page1/page1.component';
 import { CardsComponent } from './cards/cards.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
@@ -10,16 +12,17 @@ import { LayoutComponent } from './layout/layout.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo:'/layout' , pathMatch: 'full'},
-  { path: 'layout',
-    component:LayoutComponent,
-    children:[
-        { path: '', redirectTo:'dashboard',pathMatch: 'full'},
-        { path: 'dashboard', component:DashboardComponent},
-        { path: 'cards', component:CardsComponent},
-        { path: 'cards/:num', component:CardsComponent},
-        { path: 'charts/flot', component:FlotComponent},
-        { path: 'charts/radial', component:RadialComponent},
+  { path: '', component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: '/calender', pathMatch: 'full' },
+      { path: 'calender', component: CalenderComponent},
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'cards', component: CardsComponent },
+      { path: 'cards/:num', component: CardsComponent },
+      { path: 'page1', component: Page1Component },
+      { path: 'page2', component: Page2Component },
+      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule',
+       canActivate: [NeedLoginGuard] }
     ]
   },
   { path: 'login', component:LoginComponent},
@@ -28,9 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    enableTracing:true
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

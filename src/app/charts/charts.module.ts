@@ -8,6 +8,7 @@ import { RadialComponent } from './radial/radial.component';
 @NgModule({
   imports: [
     CommonModule,
+    ChartsRoutingModule
   ],
   declarations: [
     FlotComponent,

@@ -1,0 +1,15 @@
+<div class="calender">
+  <table class="table">
+      <tr>
+        <td colspan="7" class="middle">{{currentDate}}</td>
+      </tr>      
+      <tr>
+        <td *ngFor="let day of week">{{day}}</td>
+      </tr>
+      <tr *ngFor="let result of results" let i="index">
+        <td *ngFor="let res of result" let idx="index">
+          <app-calender-content currentMonth="{{res.isCurrentMonth}}" currentDate="{{res.isCurrentDay}}">{{res.date}}</app-calender-content>
+        </td>
+      </tr>
+  </table>
+</div>
